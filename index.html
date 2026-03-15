@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free US health insurance calculator for 2025. Estimate ACA marketplace premiums, premium tax credits, subsidies, and plan costs by income and household size.">
+    <title>US Health Insurance Calculator 2025 | ACA Premium & Subsidy Estimator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>US Health Insurance Calculator</h1>
+        <p class="subtitle">2025 ACA Marketplace Premium & Subsidy Estimator</p>
+
+        <div class="card">
+            <h2>Your Information</h2>
+            <div class="form-group">
+                <label for="income">Annual Household Income ($)</label>
+                <input type="number" id="income" value="50000" min="0">
+            </div>
+            <div class="form-group">
+                <label for="household-size">Household Size</label>
+                <select id="household-size">
+                    <option value="1">1 person</option>
+                    <option value="2" selected>2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="4">4 people</option>
+                    <option value="5">5 people</option>
+                    <option value="6">6 people</option>
+                    <option value="7">7 people</option>
+                    <option value="8">8 people</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age of Primary Applicant</label>
+                <input type="number" id="age" value="35" min="18" max="64">
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state"></select>
+            </div>
+            <div class="form-group">
+                <label for="tobacco">
+                    <input type="checkbox" id="tobacco"> Tobacco user
+                </label>
+            </div>
+            <button class="btn" id="calc-btn">Calculate Premiums & Subsidies</button>
+        </div>
+
+        <div id="results" style="display:none">
+            <div class="card">
+                <h2>Your Results</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>Federal Poverty Level</h4>
+                        <p id="fpl-pct">0%</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>Estimated Monthly Subsidy</h4>
+                        <p id="subsidy">$0</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Your Expected Contribution</h4>
+                        <p id="contribution">0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Plan Tier Comparison</h2>
+                <p class="muted">Estimated monthly premiums after subsidy</p>
+                <div class="plan-grid" id="plan-grid"></div>
+            </div>
+
+            <div class="card">
+                <h2>Cost-Sharing Reductions</h2>
+                <p id="csr-info" class="muted"></p>
+            </div>
+
+            <div class="card">
+                <h2>Key Details</h2>
+                <div class="breakdown">
+                    <div class="row"><span>Annual Income</span><span id="d-income">$0</span></div>
+                    <div class="row"><span>FPL for Household</span><span id="d-fpl">$0</span></div>
+                    <div class="row"><span>Income as % of FPL</span><span id="d-fpl-pct">0%</span></div>
+                    <div class="row"><span>Expected Annual Contribution</span><span id="d-annual-contrib">$0</span></div>
+                    <div class="row"><span>Estimated Benchmark Premium</span><span id="d-benchmark">$0/mo</span></div>
+                    <div class="row"><span>Monthly Premium Tax Credit</span><span id="d-ptc">$0</span></div>
+                    <div class="row"><span>Tobacco Surcharge</span><span id="d-tobacco">N/A</span></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Estimates only. Actual premiums vary by insurer, plan, and location. Visit <strong>healthcare.gov</strong> for official marketplace enrollment.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
